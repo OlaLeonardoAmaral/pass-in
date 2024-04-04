@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.amaral.passin.domain.attendee.Attendee;
 import br.com.amaral.passin.domain.checkin.CheckIn;
-import br.com.amaral.passin.dto.attendee.AttendeeDetails;
+import br.com.amaral.passin.dto.attendee.AttendeeDetailsDTO;
 import br.com.amaral.passin.dto.attendee.AttendeesListResponseDTO;
 import br.com.amaral.passin.repositories.AttendeeRepository;
 import br.com.amaral.passin.repositories.CheckInRepository;
@@ -27,10 +27,10 @@ public class AttendeeService {
     public AttendeesListResponseDTO getEventsAttendee(String eventId) {
         List<Attendee> attendeeList = this.getAllAttendeesFromEvent(eventId);
 
-        List<AttendeeDetails> attendeeDetailsList = attendeeList.stream().map(attendee -> {
+        List<AttendeeDetailsDTO> attendeeDetailsList = attendeeList.stream().map(attendee -> {
             Optional<CheckIn> checkIn = this.checkInRepository.findByAttendeeAttendeeId(attendee.getAttendeeId());
             LocalDateTime checkedInAt = checkIn.isPresent() ? checkIn.get().getCreatedAt() : null;
-            return new AttendeeDetails(attendee.getAttendeeId(), attendee.getName(), attendee.getEmail(), attendee.getCreatedAt(), checkedInAt);
+            return new AttendeeDetailsDTO(attendee.getAttendeeId(), attendee.getName(), attendee.getEmail(), attendee.getCreatedAt(), checkedInAt);
         }).toList();
 
         return new AttendeesListResponseDTO(attendeeDetailsList);
