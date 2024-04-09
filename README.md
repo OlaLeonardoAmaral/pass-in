@@ -26,3 +26,36 @@
 </div>  
 
 ---
+
+## Vamos começar
+É necessário ter instalado em sua máquina o [Java 17](https://efficient-sloth-d85.notion.site/Instalando-Java-17-a6636205fb13442d86998dda72710fdc), [Maven](https://efficient-sloth-d85.notion.site/Maven-4b297322549040f1ad2bf61d6080dd0a) e a sua IDE preferida. Além disso, você também pode começar simplesmente navegando pelo repositório e encontrando o que é de seu interesse. Após concluir essas instalações, você pode clonar o projeto usando o comando git clone. Sinta-se à vontade para fazer alterações e enviar pull requests com suas modificações.
+
+---
+
+## Endpoints
+
+O backend define os seguintes endpoints:
+
+### Participante
+
+| Método | Url | Descrição | Exemplo de corpo de solicitação válido | 
+| ------ | --- | --------- | -------------------------------------- |
+| GET    | /attendees/{attendeeId}/badge      | Buscar o crachá de um participante                   | |
+| POST   | /attendees/{attendeeId}/check-in   | Fazer o check-in de um participante em um evento     | |
+
+
+
+### Evento
+
+| Método | Url | Descrição | Exemplo de corpo de solicitação válido | 
+| ------ | --- | --------- | -------------------------------------- |
+| GET    | /events/{eventId}              | Retorna os detalhes de um evento                   | |
+| GET    | /events/attendees/{eventId}    | Retorna os participantes de um determinado evento  | |
+| POST   | /events                        | Cria um evento                                     | |
+| POST   | /events/{eventId}/attendees    | Registra o participante em um evento               | |
+
+
+
+
+
+
