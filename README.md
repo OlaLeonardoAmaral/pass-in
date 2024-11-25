@@ -1,61 +1,84 @@
-
 <div align="center">
   <img src="https://github.com/OlaLeonardoAmaral/pass-in/assets/86934921/b5e72bb8-b800-49aa-8bbe-974259679eab">
 </div>
 
 ---
 
-<p align="left">
-  Este projeto desenvolvido durante a NLW Unit Trilha Java tem como foco proporcionar uma plataforma para facilitar a inscrição em eventos presenciais. 
-</p>
-<p>
-  Orientado e conduzido por
-  <a href="https://www.youtube.com/@kipperdev">
-    Fernanda Kipper
-  </a>, youtuber convidada pela Rocketseat.
-</p>
+# Plataforma de Inscrição em Eventos 🎫
+
+Este projeto foi desenvolvido durante a **15ª edição da Next Level Week (NLW)**, na **Trilha Java**, entre os dias 1 e 4 de abril de 2024, orientado pela youtuber convidada **[Fernanda Kipper](https://www.youtube.com/@kipperdev)** e oferecido pela **Rocketseat**.
+
+## Descrição Geral
+
+A plataforma facilita a inscrição de participantes em eventos presenciais, oferecendo funcionalidades essenciais como o gerenciamento de participantes, check-ins e emissão de crachás. O projeto foca em proporcionar uma experiência prática e eficiente tanto para organizadores quanto para participantes.
+
+### Propósito
+
+A ideia principal do projeto surgiu da necessidade de um sistema simples e eficaz para o **registro e gerenciamento de eventos**, permitindo a visualização de detalhes do evento, a inscrição de participantes e o controle do check-in em tempo real.
 
 ---
 
-<h3 align="center">
-  Tecnologias utilizadas
-</h3>
+## Aprendizados e Experiência 🎓
+
+Este projeto proporcionou uma oportunidade única de aplicar **conceitos de backend com Java** e o framework **Spring**, focando em práticas recomendadas para construção de APIs escaláveis e eficientes. Entre os principais aprendizados estão:
+
+- **Configuração de Banco de Dados**: Utilização do **HSQLDB** como banco de dados embutido, simplificando o desenvolvimento local e permitindo agilidade no teste das funcionalidades.
+- **Migrations com Flyway**: Implementação de migrações de banco de dados utilizando o **Flyway**, uma ferramenta poderosa que assegura a integridade das versões do banco de dados ao longo do ciclo de desenvolvimento.
+- **Boas práticas com Spring Boot**: Criação de um backend organizado e modular, utilizando Spring Boot para gerenciamento de dependências, injeção de dependências e segurança.
+- **Gestão de participantes e eventos**: Modelagem e implementação de entidades e repositórios para gerenciamento de eventos e participantes, com endpoints para realizar check-ins e gerar crachás.
+- **Aprofundamento em REST APIs**: Criação de endpoints RESTful para permitir interações simples e eficazes com o sistema, proporcionando uma experiência fluida para os usuários da plataforma.
+
+---
+
+## Tecnologias Utilizadas 🚀
+
 <div align="center">
-  <img align="center" alt="Leo-HTML" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg">
-  <img align="center" alt="Leo-CSS" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg">
-</div>  
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" width="50" height="50"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring" width="50" height="50"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg" alt="Maven" width="50" height="50"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" width="50" height="50"/>
+</div>
+
+- **Java 17**: Linguagem de programação utilizada no backend.
+- **Spring Boot**: Framework principal para criação da aplicação backend.
+- **Maven**: Ferramenta de automação para build e gerenciamento de dependências.
+- **HSQLDB**: Banco de dados embutido utilizado para desenvolvimento local.
+- **Flyway**: Gerenciamento de migrações do banco de dados para manter a integridade e evolução do schema.
 
 ---
 
-## Vamos começar
-É necessário ter instalado em sua máquina o [Java 17](https://efficient-sloth-d85.notion.site/Instalando-Java-17-a6636205fb13442d86998dda72710fdc), [Maven](https://efficient-sloth-d85.notion.site/Maven-4b297322549040f1ad2bf61d6080dd0a) e a sua IDE preferida. Além disso, você também pode começar simplesmente navegando pelo repositório e encontrando o que é de seu interesse. Após concluir essas instalações, você pode clonar o projeto usando o comando git clone. Sinta-se à vontade para fazer alterações e enviar pull requests com suas modificações.
+## Funcionalidades Principais 📋
+
+- **Cadastro de Eventos**: Criação e visualização de eventos.
+- **Registro de Participantes**: Inscrição de participantes em eventos.
+- **Check-in de Participantes**: Controle de presença dos participantes.
+- **Geração de Crachás**: Emissão de crachás personalizados para participantes.
 
 ---
 
-## Endpoints
-
-O backend define os seguintes endpoints:
+## Endpoints da API 📡
 
 ### Participante
 
-| Método | Url | Descrição | Exemplo de corpo de solicitação válido | 
-| ------ | --- | --------- | -------------------------------------- |
-| GET    | /attendees/{attendeeId}/badge      | Buscar o crachá de um participante                   | |
-| POST   | /attendees/{attendeeId}/check-in   | Fazer o check-in de um participante em um evento     | |
-
-
+| Método | URL                          | Descrição                                    |
+|--------|------------------------------|----------------------------------------------|
+| GET    | /attendees/{attendeeId}/badge | Retorna o crachá de um participante          |
+| POST   | /attendees/{attendeeId}/check-in | Faz o check-in de um participante em um evento |
 
 ### Evento
 
-| Método | Url | Descrição | Exemplo de corpo de solicitação válido | 
-| ------ | --- | --------- | -------------------------------------- |
-| GET    | /events/{eventId}              | Retorna os detalhes de um evento                   | |
-| GET    | /events/attendees/{eventId}    | Retorna os participantes de um determinado evento  | |
-| POST   | /events                        | Cria um evento                                     | |
-| POST   | /events/{eventId}/attendees    | Registra o participante em um evento               | |
+| Método | URL                            | Descrição                                   |
+|--------|---------------------------------|---------------------------------------------|
+| GET    | /events/{eventId}               | Retorna os detalhes de um evento            |
+| GET    | /events/attendees/{eventId}     | Retorna a lista de participantes de um evento|
+| POST   | /events                        | Cria um novo evento                         |
+| POST   | /events/{eventId}/attendees     | Registra um participante em um evento       |
 
+---
 
+## Considerações Finais
 
+Esse projeto não apenas contribuiu para o aprendizado de diversas ferramentas e práticas no desenvolvimento backend, mas também consolidou meu entendimento sobre **gestão de banco de dados**, **boas práticas de desenvolvimento com Spring Boot** e a importância de **migrations controladas** em sistemas complexos. Foi uma experiência valiosa que certamente servirá como base para projetos futuros.
 
-
-
+---
+**Linkedin**: [Leonardo Amaral](https://www.linkedin.com/in/leonardoamaraldev/)
